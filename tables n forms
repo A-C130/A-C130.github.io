@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Pizza Ordering Form</title>
+   
+</head>
+<body>
+
+<h1>Pizza Ordering Form</h1>
+
+
+        <h1>Contact Information</h1>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+-        <h1>Select Pizza Size</h1>
+        
+        <label for="size">Pizza Size:</label>
+        <select name="size" id="size" required>
+            <option value="">-Select Size-</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="xlarge">XLarge</option>
+        </select>
+
+        <h1>Select Sauce</h1>
+        
+        <input type="radio" name="favLang"><label>Marinara</label><br>
+                <input type="radio" name="favLang"><label>Ranch</label><br>
+                        <input type="radio" name="favLang"><label>No Sauce</label><br>
+
+
+
+        <h1>Select Toppings</h1>
+        
+        <input type="checkbox" name="as"><label>Pepperoni</label><br>
+        <input type="checkbox" name="as"><label>sausage</label><br>
+        <input type="checkbox" name="as"><label>mushroom</label><br>
+        <input type="checkbox" name="as"><label>pineapple</label><br>
+                <input type="checkbox" name="as"><label>peppers</label><br>
+        <input type="checkbox" name="as"><label>onions</label><br>
+
+     
+
+
+
+        <h1>Additional Instructions</h1>
+        
+        <p>Add instructions</p>
+        <textarea name="comments">Add instructions</textarea>
+
+<input type="submit" value="Submit!">
+
+
+<h1>List of My Favorite Games</h1>
+
+<table>
+    <caption>List of My Favorite Games</caption>
+    
+</table>
+
+</body>
+</html>
