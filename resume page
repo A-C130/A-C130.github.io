@@ -1,1 +1,47 @@
+<!DOCTYPE html>
 
+<body>
+    <header>
+        <h1>Aayush Chokshi</h1>
+        <p>UCF Email: aa636133@ucf.edu
+</p>
+        <p><a href="https://www.linkedin.com/in/aayush-chokshi-456a06250/">Linkedin</a>
+</p>
+    </header>
+    
+  
+    
+    <main>
+        <section>
+            <h2>Professional Objective</h2>
+            <p>I am an IT major who is currently seeking a internship and/ or job in the field.</p>
+        </section>
+        
+        <section>
+            <h2>Education</h2>
+            <article>
+                <h3>Bachelor of Science in Computer Science</h3>
+                <p>University of Central Florida, Orlando, FL</p>
+                <p>Expected Graduation: May 2026</p>
+            </article>
+        </section>
+                
+        <section>
+            <h2>Projects</h2>
+            
+               <p>Created a code generator for the SPL language</p>
+               <p>Implemented a parser for the context-free syntax of the SPL language</p>
+            
+        </section>
+        
+        <section>
+            <h2>Skills</h2>
+            <p>Proficiency in the C coding language</p>
+            <p>Proficiency in OOP languages like Java and Lua</p>
+            
+        </section>
+    </main>
+    
+    
+</body>
+</html>
