@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>parser for the context-free syntax of the SPL language</title>
+</head>
+<body>
+    
+    <main>
+        
+        
+        <section>
+            <h2>Image</h2>
+            <article>
+                <img src="https://i.ytimg.com/vi/Sveob49iOpA/maxresdefault.jpg" alt="project 2">
+            </article>
+        </section>
+                
+        <section>
+            <h2>Description</h2>
+            
+               <p>Together with my classmates, we created a parser that builds and produces abstract syntax trees </p>
+               
+      
+        </section>
+        
+        <section>
+            <h2>Skills learned </h2>
+            <p>Proficiency in the 2017 ANSI standard C </p>
+            
+        </section>
+    </main>
+    
+    
+</body>
+</html>
