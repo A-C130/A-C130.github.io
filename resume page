@@ -1,52 +1,48 @@
 <!DOCTYPE html>
-<html lang=“en”>
-
+<html lang="en">
 <head>
-<title>resume</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Facts</title>
 </head>
-
 <body>
     <header>
-        <h1>Aayush Chokshi</h1>
-        <p>UCF Email: aa636133@ucf.edu
-</p>
-        <p><a href="https://www.linkedin.com/in/aayush-chokshi-456a06250/">Linkedin</a>
-</p>
+        <h1>Dog Facts</h1>
     </header>
     
-  
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="project1.html">Todo List App</a></li>
+            <li><a href="project2.html">Weather Forecast App</a></li>
+            <li><a href="dogfacts.html">Dog Facts</a></li>
+        </ul>
+    </nav>
     
     <main>
         <section>
-            <h2>Professional Objective</h2>
-            <p>I am an IT major who is currently seeking a internship and/ or job in the field.</p>
+            <figure>
+                <img src="https://images.squarespace-cdn.com/content/v1/6308ae3a3fae5f315e3701f0/b37fd828-a364-4312-b6e6-7d9f6c505d8f/image-from-rawpixel-id-9201190-jpeg.jpg" alt="Illustration of a dog" width="600">
+                <figcaption>Illustration of a dog.</figcaption>
+            </figure>
         </section>
         
         <section>
-            <h2>Education</h2>
-            <article>
-                <h3>Bachelor of Science in Computer Science</h3>
-                <p>University of Central Florida, Orlando, FL</p>
-                <p>Expected Graduation: May 2026</p>
-            </article>
-        </section>
-                
-        <section>
-            <h2>Projects</h2>
-            
-               <p>Created a code generator for the SPL language</p>
-               <p>Implemented a parser for the context-free syntax of the SPL language</p>
-            
-        </section>
-        
-        <section>
-            <h2>Skills</h2>
-            <p>Proficiency in the C coding language</p>
-            <p>Proficiency in OOP languages like Java and Lua</p>
-            
+            <h2>Interesting Dog Facts</h2>
+            <p>Here are some fascinating facts about dogs, our loyal companions:</p>
+            <ul>
+                <li>Dogs have coevolved with humans for so long that they can read human facial expressions and interpret gestures. [](grok_render_citation_card_json={"cardIds":["ca0491"]})</li>
+                <li>A dog's sense of smell is up to 40 times better than a human's, with as many as 300 million scent receptors compared to our 6 million. [](grok_render_citation_card_json={"cardIds":["97c767","62709a"]})</li>
+                <li>Dogs are the most popular pet on the planet and evolved from a now-extinct species of wolf. [](grok_render_citation_card_json={"cardIds":["861f89"]})</li>
+                <li>They can learn over 100 words and gestures, and their intelligence is comparable to that of a two-year-old child. [](grok_render_citation_card_json={"cardIds":["742b2f"]})</li>
+                <li>Dogs have a sense of time and can get jealous when they see their owners showing affection to others. [](grok_render_citation_card_json={"cardIds":["f51bfd"]})</li>
+                <li>The oldest recorded dog lived to 29 years and 5 months—an Australian cattle dog named Bluey. [](grok_render_citation_card_json={"cardIds":["2af496"]})</li>
+            </ul>
         </section>
     </main>
     
-    
+    <footer>
+        <p>&copy; 2026 Alex Johnson</p>
+    </footer>
 </body>
 </html>
