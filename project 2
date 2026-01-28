@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang=“en”>
-<html>
+<html lang=en>
 <head>
 <title>parser for the context-free syntax of the SPL language</title>
 </head>
