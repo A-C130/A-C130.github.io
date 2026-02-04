@@ -32,7 +32,23 @@ div.relative {
         border: 3px solid blue;
 
     }
+    
+    
+a:link {
+  color: Blue;
+}
 
+
+a:visited {
+  color: Blue;
+}
+
+a.one:link {color:red;}
+a.one:visited {color:red;}
+
+table, th, td {
+  border: 1px solid green;
+}
  
 
 </style>
@@ -67,8 +83,58 @@ div.relative {
 
 <h2>Lists, Links, and Tables</h2>
 
+<p>01.<a href="default.asp" target="_blank">Item 1</a></p>
+<p>02.<a href="default.asp" target="_blank">Item 2</a></p>
+<p>03.<a href="default.asp" target="_blank">Item 3</a></p>
+<p>04.<a href="default.asp" target="_blank">Item 4</a></p>
+<p>05.<a href="default.asp" target="_blank">Item 5</a></p>
+
+<h3>Common HTML Tags</h3>
+<p><a class="one" href="default.asp" target="_blank">W3schools</a>has a great resource for HTML, CSS, and JavaScript</p>
+
+<table>  
+<tr>
+    <th>tag</th>
+    <th>description</th>
+  </tr> 
+  
+  <tr>
+    <td>table</td>
+    <td>Root for tabular data to be displayed on the page.</td>
+  </tr>
+  
+  <tr>
+    <td>p</td>
+    <td>Defines a paragraph. Considered a block element</td>
+  </tr>
+  
+  
+   <tr>
+    <td>a</td>
+    <td>Defines a paragraph. Considered a block element</td>
+  </tr>
+  
+   <tr>
+    <td>strong</td>
+    <td>"Anchor", or link. Lets users navigate to another page.</td>
+  </tr>
+  
+   
+   <tr>
+    <td>img</td>
+    <td>Adds an image to the page. Uses the "src" attribute to specify the location of the resource.
+</td>
+  </tr>
+  
+  <table/e>
+
+
+
+
 
 </body>
 </html>
+
+
 
 
