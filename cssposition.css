@@ -1,1 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+
+body {
+    background-color: white;
+    color: black;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background-color: red;
+    color: black;
+    
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+/* AI output*/
+nav {
+     position: relative;
+	 display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+nav a {
+    background-color: blue;
+    color: white;
+    padding: 12px 24px;
+}
+
+
+
+.sidebar {
+    position: fixed; /* AI output */
+    top: 0px;              
+    left: 0;
+    bottom: 0;
+    background-color: orange; 
+    
+}
+
+.sidebar h2 {
+    text-align: center;
+    position: relative;
+	 display: flex;
+}
+
+
+/* AI output */
+.sidebar a {
+    
+}
+
+
+
+
+main {
+    margin-left: 150px;           
+    margin-top: 140px;          
+    padding: 30px 40px;
+}
+
+
+
+
+
+.article h3 {
+    color: black;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.article p {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+
+
+
+
+
+.thank-you {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 50, 120, 0.92);
+    color: white;
+    padding: 18px 28px;
+   
+   }
+
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>MyBlog.com</h1>
+    <nav>
+        <a href="#">Recent Articles</a>
+        <a href="#">Services</a>
+        <a href="#">Mission</a>
+        <a href="#">About Us</a>
+    </nav>
+</header>
+
+<div class="sidebar">
+    <h2>Jump to an Article</h2>
+    <ul>
+        <li><a href="#">Article 1</a></li>
+        <li><a href="#">Article 2</a></li>
+        <li><a href="#">Article 3</a></li>
+        <li><a href="#">Article 4</a></li>
+        <li><a href="#">Article 5</a></li>
+        <li><a href="#">Article 6</a></li>
+        <li><a href="#">Article 7</a></li>
+        <li><a href="#">Article 8</a></li>
+        <li><a href="#">Article 9</a></li>
+        <li><a href="#">Article 10</a></li>
+    </ul>
+</div>
+
+<main>
+    <h2>Recent Journal Articles</h2>
+    
+    
+ <div class="article">
+ <h3>Article 1</h3>
+ <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at magna ut elit suscipit tincidunt et quis magna. Sed eu feugiat orci. Aenean posuere nunc a ornare scelerisque.</p>
+ </div>
+
+ <div class="article">
+ <h3>Article 2</h3>
+ <p>Sed sed neque eget justo venenatis rutrum vitae quis ante. Sed ut laculis dui, eget commodo nisi. Etiam et arcu ipsum. Praesent porta eu nisi a malesuada.</p>
+ </div>
+
+ <div class="article">
+ <h3>Article 3</h3>
+ <p>Vivamus lectus ante, venenatis tincidunt id, pretium ante est. Nulla facilisi. Curabitur vestibulum malesuada lectus, nec gravida nibh blandit ultrices.</p>
+ </div>
+
+ <!-- Article 4 -->
+ <div class="article">
+ <h3>Article 4</h3>
+ <p>Proin mi ipsum, egestas in diam nec, volutpat scelerisque est. Proin quis ullamcorper magna ac aliquet velit, ut viverra velit. Donec dictum luctus placerat.</p>
+ </div>
+
+ <div class="article">
+ <h3>Article 5</h3>
+ <p>Fusce ullamcorper euismod diam diam tincidunt porta tortor id. Morbi sapien leo, mattis quis magna eget, vehicula tempus mauris. Pellentesque fermentum mattis scelerisque turpis.</p>
+ </div>
+
+ <div class="article">
+ <h3>Article 6</h3>
+ <p>In hac habitasse platea dictumst. Sed id magna feugiat, tempor quam. Pellentesque mattis scelerisque turpis efficitur fermentum. Cras et metus bibendum.</p>
+ </div>
+
+ <div class="article">
+ <h3>Article 7</h3>
+ <p>Morbi ullamcorper mauris non eu eros eleifend, ac gravida turpis placerat. Cras lacinia leo a est sagittis, nec commodo felis volutpat . Vestibulum et mi quis tortor congue.</p>
+ </div>
+
+ <div class="article">
+ <h3>Article 8</h3>
+ <p>Donec ornare, neque in interdum egestas ex. Fusce finibus lacus in augue pharetra luctus. Suspendisse potenti. Nam efficitur sem euismod lacus eleifend.</p>
+ </div>
+
+ <div class="article">
+ <h3>Article 9</h3>
+ <p>Curabitur euismod neque lectus eget volutpat. Donec lacinia volutpat velit, ut viverra velit. Vestibulum lacinia dapibus pharetra. Integer cursus nibh vitae tincidunt.</p>
+ </div>
+
+ <div class="article">
+ <h3>Article 10</h3>
+ <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+ </div>
+
+
+
+
+<div class="thank-you">
+    Thank you for visiting!
+</div>
+
+</main>
+</body>
+</html>
+
+
 
