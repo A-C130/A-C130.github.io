@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 1px;
+    right: 0;
+    height: 120px;
+    background: black;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    color:white;
+    margin-bottom: 8px;
+}
+
+header h2 {
+	 text-decoration: underline;
+    font-size: 1.4rem;
+    text-align: center;
+    color:white;
+    margin-bottom: 8px;
+}
+
+
+
+.sidebar {
+    position: fixed;
+    top: 120px;              
+    left: 0;
+    bottom: 0;
+    width: 18%;              
+    background-color: blue;
+    padding: 20px 15px;
+    overflow-y: auto;
+    z-index: 900;
+}
+
+/* bottom 4 r AI output*/
+
+.sidebar h2 {
+
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #8b0000;
+    text-align: center;
+}
+
+.sidebar .contact-info p {
+      margin: 12px 0;
+      font-size: 1rem;
+    }
+
+    .sidebar .contact-info a {
+      color: #a5d8ff;
+      text-decoration: none;
+    }
+
+    .sidebar .contact-info a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+
+.sidebar ul {
+    list-style: none;
+}
+
+
+
+/*ai output*/
+main {
+    margin-left: 18%;           
+    margin-top: 140px;          
+    padding: 30px 40px;
+    min-height: calc(100vh - 140px);
+}
+
+
+
+
+.article h3 {
+    margin-bottom: 12px;
+}
+
+.article p {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Aayush Chokshi</h1>
+  <h2>IT / Computer Science Major</h2>
+</header>
+
+<div class="sidebar">
+  <h2>Contact Information</h2>
+  <div class="contact-info">
+    <p><strong>Email:</strong> <a href="mailto:aayush.chokshi@knights.ucf.edu">aa636133@ucf.edu</a></p>
+    <p><strong>Phone:</strong> (407) 885 9202</p> 
+    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/aayush-chokshi" target="_blank">linkedin.com/in/aayush-chokshi</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/A-C130" target="_blank">github.com/A-C130</a></p>
+    <p><strong>Location:</strong> Orlando, FL</p>
+  </div>
+</div>
+
+
+
+<main>
+  <h2>Professional Objective</h2>
+  <div class="article">
+    <p>I am a Computer Science major at UCF seeking internship and full-time opportunities in software development, IT, or related fields. Passionate about programming languages, compilers, parsers, and building clean, efficient systems.</p>
+
+</div>
+
+  <h2>Education</h2>
+  <div class="article">
+    <h4>Bachelor of Science in Computer Science</h4>
+    <p>University of Central Florida, Orlando, FL</p>
+    <p>Expected Graduation: May 2026</p>
+  </div>
+
+  <h2>Projects</h2>
+  <div class="article">
+    <p><strong>SPL Code Generator</strong><br>
+      <a href="https://github.com/A-C130/A-C130.github.io/blob/main/project%201" target="_blank">Created a code generator for the SPL language</a></p>
+  </div>
+
+  <div class="article">
+    <p><strong>SPL Parser</strong><br>
+      <a href="https://github.com/A-C130/A-C130.github.io/blob/main/project%202" target="_blank">Implemented a parser for the context-free syntax of the SPL language</a></p>
+  </div>
+
+</main>
+
+<div class="thank-you">
+  Thank you for visiting!
+</div>
+
+
+</body>
+</html>
