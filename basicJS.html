@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Basic JavaScript Exercises</title>
+  <style>
+  
+  </style>
+</head>
+<body>
+
+<h1>Basic JavaScript Exercises</h1>
+
+<div>
+  <h2>Current Counter: <span id="counter"></span></h2>
+  <button id="increaseBtn">Increase Counter</button>
+  <button id="decreaseBtn">Decrease Counter</button>
+</div>
+
+<div class="section">
+  <h2>1pt: Simple For Loop</h2>
+  <button id="runLoopBtn">Run For Loop</button>
+  <div>Result: <span id="result"></span></div>
+</div>
+
+<div class="section">
+  <h2>1pt: Repetition with Condition</h2>
+  <button id="showOddBtn">Show Odd Numbers</button>
+  <div>Result: <span id="oddResult"></span></div>
+</div>
+
+<div class="section">
+  <h2>1pt: Arrays</h2>
+  <p>When clicked: console.log an array of multiples of 5 up to the counter (in reverse order)</p>
+  <button id="arrayBtn">Array of Reverse Order Multiples of 5</button>
+  <p style="font-size:0.9rem; color:#555;">(open browser console to see output)</p>
+</div>
+
+<div class="section">
+  <h2>2pts: Objects and Form Fields</h2>
+  <label>Car Type: <input type="text" id="carType" value="truck"></label><br>
+  <label>Car MPG:  <input type="text" id="carMPG"  value="28"></label><br>
+  <label>Car Color:<input type="text" id="carColor" value="red"></label><br>
+  <button id="printCarBtn">Print Car Object</button>
+  <p style="font-size:0.9rem; color:#555;">(check console for object output)</p>
+</div>
+
+<div class="section">
+  <h2>2pts: Objects and Form Fields pt. 2</h2>
+  <button id="loadCar1">Load Car 1</button>
+  <button id="loadCar2">Load Car 2</button>
+  <button id="loadCar3">Load Car 3</button>
+</div>
+
+<div class="section">
+  <h2>2pt: Changing Styles</h2>
+  <p id="colorParagraph">
+    This paragraph's text color will change when you click the buttons below 
+    (and only this paragraph).
+  </p>
+  <button class="color-btn">Red</button>
+  <button class="color-btn">Green</button>
+  <button class="color-btn">Blue</button>
+</div>
+
+<footer>
+  
+  <pre style="display:none;">
+Car 1: sedan, 32, blue
+Car 2: suv, 22, black
+Car 3: truck, 28, red
+  </pre>
+</footer>
+
+<script>
+
+let counter = 0;
+const counterDisplay = document.getElementById('counter');
+
+function updateCounter() {
+  counterDisplay.textContent = counter;
+}
+
+document.getElementById('increaseBtn').addEventListener('click', () => {
+  counter++;
+  updateCounter();
+});
+
+document.getElementById('decreaseBtn').addEventListener('click', () => {
+  counter = Math.max(0, counter - 1);
+  updateCounter();
+});
+
+
+document.getElementById('runLoopBtn').addEventListener('click', () => {
+  let output = '';
+  for (let i = 0; i <= counter; i++) {
+    output += i + ' ';
+  }
+  document.getElementById('result').textContent = output.trim();
+});
+
+
+document.getElementById('showOddBtn').addEventListener('click', () => {
+  let output = '';
+  for (let i = 1; i <= counter; i += 2) {
+    output += i + ' ';
+  }
+  document.getElementById('oddResult').textContent = output.trim() || '(none)';
+});
+
+
+document.getElementById('arrayBtn').addEventListener('click', () => {
+  const multiples = [];
+  for (let i = Math.floor(counter / 5) * 5; i >= 5; i -= 5) {
+    multiples.push(i);
+  }
+  console.log(multiples);   
+});
+
+    /* Ai output */
+
+document.getElementById('printCarBtn').addEventListener('click', () => {
+  const car = {
+    cType:  document.getElementById('carType').value.trim(),
+    cMPG:   document.getElementById('carMPG').value.trim(),
+    cColor: document.getElementById('carColor').value.trim()
+  };
+  console.log(car);
+});
+
+
+const cars = [
+  { cType: 'sedan',  cMPG: '32', cColor: 'blue'  },
+  { cType: 'suv',    cMPG: '22', cColor: 'black' },
+  { cType: 'truck',  cMPG: '28', cColor: 'red'   }
+];
+
+document.getElementById('loadCar1').addEventListener('click', () => loadCar(0));
+document.getElementById('loadCar2').addEventListener('click', () => loadCar(1));
+document.getElementById('loadCar3').addEventListener('click', () => loadCar(2));
+
+function loadCar(index) {
+  if (index >= cars.length) return;
+  const car = cars[index];
+  document.getElementById('carType').value  = car.cType;
+  document.getElementById('carMPG').value   = car.cMPG;
+  document.getElementById('carColor').value = car.cColor;
+}
+
+    /* Ai output */
+
+const paragraph = document.getElementById('colorParagraph');
+
+document.querySelectorAll('.color-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const color = btn.textContent.trim().toLowerCase();
+    if (['red','green','blue'].includes(color)) {
+      paragraph.style.color = color;
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
