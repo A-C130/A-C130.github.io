@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyBlog.com</title>
+<style>
+    body {
+        background-color: white;
+        color: black;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 120px;
+        background-color: red;
+        color: black;
+        z-index: 100;
+    }
+
+    header h1 {
+        text-align: center;
+        margin: 8px 0;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 2px;
+    }
+
+    nav a {
+        background-color: blue;
+        color: white;
+        padding: 12px 24px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        background-color: darkblue;
+    }
+
+
+ 
+
+    main {
+        margin-left: 170px;
+        margin-top: 140px;
+        padding: 30px 40px;
+    }
+
+    .controls {
+        margin-bottom: 30px;
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    button {
+        padding: 10px 18px;
+        font-size: 1em;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+
+    
+
+   /*AI output*/
+
+    #filterMenu {
+        display: none;
+        margin-top: 12px;
+        padding: 15px;
+        background: #f8f9fa;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        width: fit-content;
+    }
+
+    #filterMenu label {
+        margin-right: 18px;
+        font-weight: bold;
+    }
+
+    .article {
+        border: 1px solid #ddd;
+        padding: 18px;
+        margin-bottom: 24px;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .article h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.4em;
+    }
+
+    .type-label {
+        display: inline-block;
+        padding: 4px 10px;
+        margin-left: 10px;
+        border-radius: 4px;
+        font-size: 0.85em;
+        font-weight: bold;
+        color: white;
+    }
+
+    .Opinion { background: #dc3545; }    
+    .Recipe  { background: #fd7e14; }    
+    .Update,
+    .LifeUpdate { background: #17a2b8; }
+
+    .article p {
+        margin: 12px 0;
+        line-height: 1.5;
+    }
+
+    .read-more {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    #addForm {
+        display: none;
+        margin: 30px 0;
+        padding: 20px;
+        background: #f1f3f5;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        max-width: 700px;
+    }
+
+    #addForm label {
+        display: block;
+        margin: 12px 0 6px;
+        font-weight: bold;
+    }
+	
+    /* AI output */
+
+    #addForm input[type="text"],
+    #addForm textarea {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+    }
+
+    #addForm textarea {
+        height: 140px;
+        resize: vertical;
+    }
+
+   
+</style>
+</head>
+<body>
+
+<header>
+    <h1>MyBlog.com</h1>
+    <nav>
+        <a href="#">Recent Articles</a>
+        <a href="#">Services</a>
+        <a href="#">Mission</a>
+        <a href="#">About Us</a>
+    </nav>
+</header>
+
+
+
+<main>
+    <h2>Recent Journal Articles</h2>
+
+    <div class="controls">
+        <button id="filterBtn">Filter Articles</button>
+        <button id="addBtn">Add New Article</button>
+    </div>
+
+    <div id="filterMenu">
+        <strong>Filter by Article Type</strong><br><br>
+        <label><input type="checkbox" class="filter-check" data-type="Opinion" checked> Opinion</label>
+        <label><input type="checkbox" class="filter-check" data-type="Recipe"> Recipe</label>
+        <label><input type="checkbox" class="filter-check" data-type="LifeUpdate"> Life Update</label>
+    </div>
+
+    <div id="articles-container">
+        <div class="article" id="art1">
+            <h3>Article 1 <span class="type-label">Opinion</span></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... Donec eu feugiat ipsum.</p>
+            <span class="read-more">Read more...</span>
+        </div>
+
+        <div class="article" id="art2">
+            <h3>Article 2 <span class="type-label">Opinion</span></h3>
+            <p>Sed sed neque eget justo venenatis rutrum vitae quis ante. ... nec commodo felis volutpat.</p>
+            <span class="read-more">Read more...</span>
+        </div>
+
+        <div class="article" id="art9">
+            <h3>Article 3 <span class="type-label">Opinion</span></h3>
+            <p>Sed at augue nec turpis condimentum vulputate. ... Interdum et malesuada fames ac ante ipsum.</p>
+            <span class="read-more">Read more...</span>
+        </div>
+
+        <div class="article" id="art10">
+            <h3>Article 4 <span class="type-label">Opinion</span></h3>
+            <p>Sed erat elit, maximus ut ullamcorper vitae. ... tempus mauris.</p>
+            <span class="read-more">Read more...</span>
+        </div>
+
+    </div>
+
+    <div id="addForm">
+        <h3>Add New Article</h3>
+        <label for="title">Title:</label>
+        <input type="text" id="title" placeholder="Enter title..." value="HELLO WORLD">
+
+        <label>Type:</label>
+        <label class="type-radio"><input type="radio" name="type" value="Opinion" checked> Opinion</label>
+        <label class="type-radio"><input type="radio" name="type" value="Recipe"> Recipe</label>
+        <label class="type-radio"><input type="radio" name="type" value="LifeUpdate"> Life Update</label>
+
+        <label for="content">Text:</label>
+        <textarea id="content" placeholder="Write your article here...">hello world!!</textarea>
+
+        <button id="submitArticle">Add New Article</button>
+    </div>
+
+    <div class="thank-you">Thank you for visiting!</div>
+</main>
+
+<script>
+    document.getElementById('filterBtn').addEventListener('click', () => {
+        const menu = document.getElementById('filterMenu');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.getElementById('addBtn').addEventListener('click', () => {
+        const form = document.getElementById('addForm');
+        form.style.display = form.style.display === 'block' ? 'none' : 'block';
+    });
+
+    const filterChecks = document.querySelectorAll('.filter-check');
+    filterChecks.forEach(check => {
+        check.addEventListener('change', updateFilter);
+    });
+
+    function updateFilter() {
+        const showOpinion  = document.querySelector('[data-type="Opinion"]').checked;
+        const showRecipe   = document.querySelector('[data-type="Recipe"]').checked;
+        const showUpdate   = document.querySelector('[data-type="LifeUpdate"]').checked;
+
+        document.querySelectorAll('.article').forEach(article => {
+            const label = article.querySelector('.type-label');
+            if (!label) {
+                article.style.display = 'block'; 
+                return;
+            }
+
+            const type = label.textContent.trim();
+
+            if (type === 'Opinion' && !showOpinion)  article.style.display = 'none';
+            else if (type === 'Recipe' && !showRecipe) article.style.display = 'none';
+            else if ((type === 'LifeUpdate' || type === 'Update') && !showUpdate) article.style.display = 'none';
+            else article.style.display = 'block';
+        });
+    }
+    
+    /* aAI oytput */
+
+    document.getElementById('submitArticle').addEventListener('click', () => {
+        const title   = document.getElementById('title').value.trim()   || 'Untitled';
+        const content = document.getElementById('content').value.trim() || 'No content';
+        const type    = document.querySelector('input[name="type"]:checked').value;
+
+        const container = document.getElementById('articles-container');
+
+        const div = document.createElement('div');
+        div.className = 'article';
+        div.innerHTML = `
+            <h3>${title} <span class="type-label ${type}">${type === 'LifeUpdate' ? 'Life Update' : type}</span></h3>
+            <p>${content.replace(/\n/g, '<br>')}</p>
+            <span class="read-more">Read more...</span>
+        `;
+
+        container.appendChild(div);
+
+        document.getElementById('title').value = '';
+        document.getElementById('content').value = '';
+        document.querySelector('input[name="type"][value="Opinion"]').checked = true;
+
+        updateFilter();
+    });
+
+    updateFilter();
+</script>
+
+</body>
+</html>
