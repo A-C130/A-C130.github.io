@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pokémon Team Builder</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      padding: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1 { text-align: center; color: #2c5282; }
+    .search-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+    input, button {
+      padding: 10px 16px;
+      font-size: 1.1rem;
+      margin: 6px;
+    }
+    button {
+      background: #3182ce;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover { background: #2b6cb0; }
+    #pokemon-preview {
+      text-align: center;
+      min-height: 300px;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin: 20px 0;
+    }
+    #pokemon-preview img {
+      max-height: 240px;
+    }
+    /* AI output */
+    .moves-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #cbd5e0;
+    }
+    #team-container {
+      margin-top: 40px;
+    }
+    .team-member {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .team-member img {
+      width: 120px;
+      height: 120px;
+    }
+    .team-info {
+      flex: 1;
+    }
+    .team-moves {
+      font-size: 0.95rem;
+      color: #4a5568;
+    }
+    .team-moves strong { color: #2d3748; }
+    audio { margin: 12px 0; }
+  </style>
+</head>
+<body>
+
+  <h1>Pokemon Team Builder</h1>
+
+  <div class="search-container">
+    <input type="text" id="pokemon-input" " />
+    <button onclick="loadPokemon()">Load Pokémon</button>
+  </div>
+
+  <div id="pokemon-preview">
+    <h2 id="pokemon-name">Enter a Pokemon name or ID</h2>
+    <img id="pokemon-sprite" src="" alt="" style="display:none;">
+    <audio id="pokemon-cry" controls style="display:none;"></audio>
+    
+    <div class="moves-grid">
+      <div>
+        <label>Move 1</label>
+        <select id="move1"></select>
+      </div>
+      <div>
+        <label>Move 2</label>
+        <select id="move2"></select>
+      </div>
+      <div>
+        <label>Move 3</label>
+        <select id="move3"></select>
+      </div>
+      <div>
+        <label>Move 4</label>
+        <select id="move4"></select>
+      </div>
+    </div>
+
+    <button onclick="addToTeam()" id="add-to-team-btn" style="display:none; font-size:1.2rem; padding:12px 24px;">
+      Add to Team
+    </button>
+  </div>
+
+
+  <div id="team-container">
+    <h2>Your Team</h2>
+    <div id="team-list"></div>
+  </div>
+
+  <script>
+    const cache = new Map();
+
+    async function fetchWithCache(url) {
+      if (cache.has(url)) {
+        return cache.get(url);
+      }
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Not found");
+        const data = await response.json();
+        cache.set(url, data);
+        return data;
+      } catch (err) {
+        console.error(err);
+        throw err;
+      }
+    }
+
+    async function loadPokemon() {
+      const input = document.getElementById("pokemon-input").value.trim().toLowerCase();
+      if (!input) return alert("Please enter a name or ID");
+
+      const preview = document.getElementById("pokemon-preview");
+      const nameEl = document.getElementById("pokemon-name");
+      const spriteEl = document.getElementById("pokemon-sprite");
+      const cryEl = document.getElementById("pokemon-cry");
+      const addBtn = document.getElementById("add-to-team-btn");
+
+      nameEl.textContent = "Loading...";
+      spriteEl.style.display = "none";
+      cryEl.style.display = "none";
+      addBtn.style.display = "none";
+      clearMoves();
+	
+      try {
+        const pokemon = await fetchWithCache(`https://pokeapi.co/api/v2/pokemon/${input}`);
+        
+        const name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+        nameEl.textContent = name;
+
+        const spriteUrl = pokemon.sprites.other?.["official-artwork"]?.front_default || 
+                         pokemon.sprites.front_default;
+        if (spriteUrl) {
+          spriteEl.src = spriteUrl;
+          spriteEl.alt = name;
+          spriteEl.style.display = "block";
+        }
+
+        // below is AI
+        const cryUrl = pokemon.cries?.latest || pokemon.cries?.legacy;
+        if (cryUrl) {
+          cryEl.src = cryUrl;
+          cryEl.style.display = "block";
+        }
+
+        await populateMoves(pokemon.moves);
+
+        addBtn.style.display = "inline-block";
+
+      } catch (err) {
+        nameEl.textContent = "Pokémon not found 😔";
+        console.error(err);
+      }
+    }
+
+    async function populateMoves(moveEntries) {
+      const selects = [
+        document.getElementById("move1"),
+        document.getElementById("move2"),
+        document.getElementById("move3"),
+        document.getElementById("move4")
+      ];
+
+      selects.forEach(sel => {
+        sel.innerHTML = '<option value="">Select a move</option>';
+      });
+
+      const movePromises = moveEntries.map(entry => 
+        fetchWithCache(entry.move.url).then(data => ({
+          name: data.name,
+          url: entry.move.url
+        }))
+      );
+
+      const moves = await Promise.all(movePromises);
+
+      moves.sort((a,b) => a.name.localeCompare(b.name));
+
+      moves.forEach(move => {
+        const option = document.createElement("option");
+        option.value = move.name;
+        option.textContent = move.name.replace(/-/g, " ").split(" ").map(w => 
+          w.charAt(0).toUpperCase() + w.slice(1)
+        ).join(" ");
+
+        selects.forEach(sel => sel.appendChild(option.cloneNode(true)));
+      });
+    }
+
+    function clearMoves() {
+      ["move1","move2","move3","move4"].forEach(id => {
+        const sel = document.getElementById(id);
+        sel.innerHTML = '<option value="">Select a move</option>';
+      });
+    }
+
+	    // AI output all down below
+
+    function addToTeam() {
+      const nameEl = document.getElementById("pokemon-name");
+      const spriteEl = document.getElementById("pokemon-sprite");
+      const moves = [
+        document.getElementById("move1").value,
+        document.getElementById("move2").value,
+        document.getElementById("move3").value,
+        document.getElementById("move4").value
+      ].filter(m => m); // remove empty
+
+      if (!spriteEl.src || spriteEl.style.display === "none") {
+        return alert("No Pokémon loaded yet!");
+      }
+
+      if (moves.length === 0) {
+        return alert("Please select at least one move!");
+      }
+
+      const teamList = document.getElementById("team-list");
+
+      const member = document.createElement("div");
+      member.className = "team-member";
+
+      member.innerHTML = `
+        <img src="${spriteEl.src}" alt="${nameEl.textContent}">
+        <div class="team-info">
+          <h3>${nameEl.textContent}</h3>
+          <div class="team-moves">
+            <strong>Moves:</strong> ${moves.map(m => 
+              m.replace(/-/g, " ").split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
+            ).join(", ")}
+          </div>
+        </div>
+      `;
+
+      teamList.appendChild(member);
+
+      document.getElementById("pokemon-input").value = "";
+      document.getElementById("pokemon-preview").querySelectorAll("select").forEach(s => s.selectedIndex = 0);
+      document.getElementById("add-to-team-btn").style.display = "none";
+    }
+
+    document.getElementById("pokemon-input").addEventListener("keypress", e => {
+      if (e.key === "Enter") loadPokemon();
+    });
+  </script>
+
+</body>
+</html>
