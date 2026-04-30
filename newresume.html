@@ -1,179 +1,328 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aayush Chokshi | Information Technology</title>
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --dark: #212529;
+            --light: #f8f9fa;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    line-height: 1.6;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
 
+        header {
+            background: linear-gradient(135deg, #212529, #343a40);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 1px;
-    right: 0;
-    height: 120px;
-    background: black;
-    color: white;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+        }
 
-header h1 {
-    font-size: 2.4rem;
-    text-align: center;
-    color:white;
-    margin-bottom: 8px;
-}
+        header h2 {
+            font-size: 1.45rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
 
-header h2 {
-	 text-decoration: underline;
-    font-size: 1.4rem;
-    text-align: center;
-    color:white;
-    margin-bottom: 8px;
-}
+        nav {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
 
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
 
+        nav ul li {
+            margin: 0 18px;
+        }
 
-.sidebar {
-    position: fixed;
-    top: 120px;              
-    left: 0;
-    bottom: 0;
-    width: 18%;              
-    background-color: blue;
-    padding: 20px 15px;
-    overflow-y: auto;
-    z-index: 900;
-}
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 10px 18px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
 
-/* bottom 4 r AI output*/
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: var(--primary);
+            color: white;
+        }
 
-.sidebar h2 {
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    color: #8b0000;
-    text-align: center;
-}
+        section {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
 
-.sidebar .contact-info p {
-      margin: 12px 0;
-      font-size: 1rem;
-    }
+        section.active {
+            display: block;
+        }
 
-    .sidebar .contact-info a {
-      color: #a5d8ff;
-      text-decoration: none;
-    }
+        h3 {
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-size: 1.85rem;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 12px;
+            display: inline-block;
+        }
 
-    .sidebar .contact-info a:hover {
-      text-decoration: underline;
-      color: white;
-    }
+        .objective {
+            font-size: 1.15rem;
+            background: #f8f9fa;
+            padding: 22px;
+            border-left: 5px solid var(--primary);
+            margin-bottom: 30px;
+        }
 
+        .about-text {
+            font-size: 1.1rem;
+            max-width: 800px;
+        }
 
-.sidebar ul {
-    list-style: none;
-}
+        .project {
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
 
+        .project:last-child {
+            border-bottom: none;
+        }
 
+        .project h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
 
-/*ai output*/
-main {
-    margin-left: 18%;           
-    margin-top: 140px;          
-    padding: 30px 40px;
-    min-height: calc(100vh - 140px);
-}
+        .resume-embed {
+            width: 100%;
+            height: 700px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
 
+        .section-title {
+            margin: 25px 0 15px 0;
+            color: #0d6efd;
+            font-size: 1.4rem;
+        }
 
+        ul {
+            padding-left: 22px;
+        }
 
+        li {
+            margin-bottom: 10px;
+        }
 
-.article h3 {
-    margin-bottom: 12px;
-}
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 500;
+        }
 
-.article p {
-    font-size: 16px;
-    margin-bottom: 16px;
-}
+        .thank-you {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-style: italic;
+        }
 
-
-
-
-
-
-
-
-</style>
+        @media (max-width: 768px) {
+            nav ul { flex-direction: column; align-items: center; }
+            nav ul li { margin: 8px 0; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <h1>Aayush Chokshi</h1>
-  <h2>IT / Computer Science Major</h2>
-</header>
+    <header>
+        <h1>Aayush Chokshi</h1>
+        <h2>Information Technology Major | University of Central Florida</h2>
+    </header>
 
-<div class="sidebar">
-  <h2>Contact Information</h2>
-  <div class="contact-info">
-    <p><strong>Email:</strong> <a href="mailto:aayush.chokshi@knights.ucf.edu">aa636133@ucf.edu</a></p>
-    <p><strong>Phone:</strong> (407) 885 9202</p> 
-    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/aayush-chokshi" target="_blank">linkedin.com/in/aayush-chokshi</a></p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/A-C130" target="_blank">github.com/A-C130</a></p>
-    <p><strong>Location:</strong> Orlando, FL</p>
-  </div>
-</div>
+    <nav>
+        <ul>
+            <li><a href="#" class="active" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('experience')">Experience</a></li>
+            <li><a href="#" onclick="showSection('projects')">Projects</a></li>
+            <li><a href="#" onclick="showSection('resume')">Resume</a></li>
+            <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+        </ul>
+    </nav>
 
+    <div class="container">
 
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <h3>Professional Objective</h3>
+            <p class="objective">
+                I am a motivated Information Technology major at the University of Central Florida seeking a job 
+                in IT, software development, systems administration, or related technical fields. I am passionate about building efficient systems 
+                and applying technical knowledge to solve real-world problems.
+            </p>
 
-<main>
-  <h2>Professional Objective</h2>
-  <div class="article">
-    <p>I am a Computer Science major at UCF seeking internship and full-time opportunities in software development, IT, or related fields. Passionate about programming languages, compilers, parsers, and building clean, efficient systems.</p>
+            <h3>About Me</h3>
+            <p class="about-text">
+                I am a senior pursuing a degree in Information Technology at UCF. With hands-on experience in the workplace 
+                and a growing foundation in programming and systems tools, I am eager to apply my skills in a professional IT environment. I am well acquainted with a variety of computer languages such as Java and C. I've also had experience applying my skills as well as working with others as evidenced by the team projects I have helped create.
+            </p>
+        </section>
 
-</div>
+        <!-- Experience Section -->
+        <section id="experience">
+            <h3>Experience</h3>
 
-  <h2>Education</h2>
-  <div class="article">
-    <h4>Bachelor of Science in Computer Science</h4>
-    <p>University of Central Florida, Orlando, FL</p>
-    <p>Expected Graduation: May 2026</p>
-  </div>
+            <h4 class="section-title">Education</h4>
+            <p><strong>University of Central Florida</strong>, Orlando, FL</p>
+            <p><strong>Major:</strong> Information Technology</p>
+            <ul>
+                <li>Cumulative GPA: 2.911/4.0</li>
+                <li>Currently a Senior</li>
+            </ul>
 
-  <h2>Projects</h2>
-  <div class="article">
-    <p><strong>SPL Code Generator</strong><br>
-      <a href="https://github.com/A-C130/A-C130.github.io/blob/main/project%201" target="_blank">Created a code generator for the SPL language</a></p>
-  </div>
+            <h4 class="section-title">Awards / Honors / Certificates</h4>
+            <ul>
+                <li>Provost Scholarship Recipient</li>
+                <li>Florida Bright Futures Recipient</li>
+                <li>UCF Dean’s Honor Roll</li>
+                <li>UCF Honors Recipient</li>
+                <li>CompTIA IT Certificate Recipient</li>
+            </ul>
 
-  <div class="article">
-    <p><strong>SPL Parser</strong><br>
-      <a href="https://github.com/A-C130/A-C130.github.io/blob/main/project%202" target="_blank">Implemented a parser for the context-free syntax of the SPL language</a></p>
-  </div>
+            <h4 class="section-title">Work Experience</h4>
+            <p><strong>Sub Dental Assistant / Front Desk</strong><br>
+            Dr. Pranati S. Chokshi, DMD</p>
+            <ul>
+                <li>Assisted in taking patient x-rays and performing dental suctions</li>
+                <li>Cleaned instruments and treatment rooms</li>
+            </ul>
 
-</main>
+            <h4 class="section-title">Skills</h4>
+            <ul>
+                <li>Basic proficiency in C and Java</li>
+                <li>Familiarity with systems software tools and managing virtual machines</li>
+                <li>Proficiency with investing and stock market analysis</li>
+            </ul>
+        </section>
 
-<div class="thank-you">
-  Thank you for visiting!
-</div>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h3>Projects</h3>
+            
+            <div class="project">
+                <h4>Fitness Tracker App</h4>
+                <p>Helped develop the front-end section of a fitness tracking app with a team.</p>
+                <a href="https://github.com/AkashGanji2005/FitnessTracker" target="_blank">View on GitHub →</a>
+            </div>
 
+            <div class="project">
+                <h4>Student Club Check-in App</h4>
+                <p>I worked with my team to create a high-fidelity prototype for an app that allowed student-led clubs to check-in students faster, 
+                as well as store and analyze attendance data.</p>
+                <a href="https://github.com/reehan03/reehan03.github.io" target="_blank">View on GitHub →</a>
+            </div>
+
+            <div class="project">
+                <h4>SPL Code Generator</h4>
+                <p>Created a code generator for the SPL language.</p>
+                <a href="https://a-c130.github.io/project1.html" target="_blank">View on GitHub →</a>
+            </div>
+
+            <div class="project">
+                <h4>SPL Parser</h4>
+                <p>Implemented a parser for the context-free syntax of the SPL language.</p>
+                <a href="https://a-c130.github.io/project2.html" target="_blank">View on GitHub →</a>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume">
+            <h3>My Resume</h3>
+            <p style="margin-bottom: 15px;">Click below if the embedded version doesn't load properly:</p>
+            <a href="https://docs.google.com/document/d/1OVddA2QBRa4WgBblyZoBGpPZxhrkOajW/edit?usp=sharing&ouid=103648977121676376121&rtpof=true&sd=true" target="_blank" class="btn">Download Resume (PDF)</a>
+            
+            <iframe src="https://docs.google.com/document/d/1OVddA2QBRa4WgBblyZoBGpPZxhrkOajW/edit?usp=sharing&ouid=103648977121676376121&rtpof=true&sd=true" class="resume-embed" title="Aayush Chokshi Resume"></iframe>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h3>Contact Information</h3>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:aayush.chokshi@knights.ucf.edu">aa636133@ucf.edu</a></p>
+                <p><strong>Phone:</strong> (407) 885-9202</p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aayush-chokshi-456a06250/" target="_blank">linkedin.com/in/aayush-chokshi</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/A-C130" target="_blank">github.com/A-C130</a></p>
+                <p><strong>Location:</strong> Orlando, FL</p>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="thank-you">
+        Thank you for visiting my portfolio!
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('onclick').includes(sectionId)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
